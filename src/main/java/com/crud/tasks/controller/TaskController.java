@@ -1,6 +1,7 @@
 package com.crud.tasks.controller;
 
 import com.crud.tasks.domain.TaskDto;
+import lombok.NoArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class TaskController {
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
     public TaskDto updateTask(TaskDto taskDto) {
-        return new TaskDto((long) 1, "Edited test tittle", "Editet test content");
+        return new TaskDto((long) 1, "Edited test tittle", "Edited test content");
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTask")
