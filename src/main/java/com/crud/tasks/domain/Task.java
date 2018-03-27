@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -14,10 +15,11 @@ import javax.persistence.*;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @NotNull
     private Long id;
 
     @Column(name = "name")
-    private String tittle;
+    private String title;
 
     @Column(name = "description")
     private String content;
