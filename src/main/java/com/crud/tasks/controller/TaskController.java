@@ -1,9 +1,9 @@
 package com.crud.tasks.controller;
 
+import com.crud.tasks.domain.Task;
 import com.crud.tasks.domain.TaskDto;
 import com.crud.tasks.mapper.TaskMapper;
 import com.crud.tasks.service.DbService;
-import javafx.application.Application;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,13 +30,14 @@ public class TaskController {
     }
 
     @RequestMapping(method = RequestMethod.DELETE, value = "deleteTask")
-    public void deleteTask(String taskId) {
-
+    public void deleteTask(@RequestParam Long taskId) {
+        dbService.deleteTask(taskId);
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "updateTask")
-    public TaskDto updateTask(TaskDto taskDto) {
-        return new TaskDto((long) 1, "Edited test tittle", "Edited test content");
+    public TaskDto updateTask(@RequestBody TaskDto taskDto) {
+        Task updatedTask = dbService.saveTask(taskMapper.mapToTask(taskDto));
+        return taskMapper.mapToTaskDto(updatedTask);
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTask", consumes = APPLICATION_JSON_VALUE)
