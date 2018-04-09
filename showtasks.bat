@@ -1,16 +1,20 @@
 call runcrud.bat
-if %ERRORLEVEL% == "0" goto display
+if "%ERRORLEVEL%" == "0" goto browser
 echo.
-echo CRUD RUN has errors - breaking working
+echo There were problems with running script.
 goto fail
 
-:display
-call start "C:\Program Files (x86)\Google\Chrome\Application" http://localhost:8080/crud/v1/task/getTasks
+
+:browser
+explorer "http://localhost:8080/crud/v1/tasks/getTasks"
+if "%ERRORLEVEL%" == "0" goto end
+echo.
+echo There were problems with running browser.
+goto fail
 
 :fail
 echo.
 echo There were errors
-goto end
 
 :end
 echo.
