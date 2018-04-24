@@ -34,7 +34,7 @@ public class TrelloClientTest {
     private TrelloConfig trelloConfig;
 
     @Mock
-    TrelloBadgesDto trelloBadgesDto;
+    private TrelloBadgesDto trelloBadgesDto;
 
     @Before
     public void init() {
