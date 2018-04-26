@@ -18,7 +18,10 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import static org.junit.Assert.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -101,5 +104,6 @@ public class TrelloClientTest {
 
         //Then
         assertEquals(0, fetchedTrelloBoards.size());
+        verify(restTemplate, times(1)).getForObject(uri, TrelloBoardDto[].class);
     }
 }
