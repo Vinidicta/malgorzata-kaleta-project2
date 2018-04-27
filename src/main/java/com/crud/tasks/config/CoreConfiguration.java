@@ -38,7 +38,7 @@ public class CoreConfiguration implements WebMvcConfigurer {
     }
 
     @Override
-    public void configurePathMatch(PathMatchConfigurer configurer) git{
+    public void configurePathMatch(PathMatchConfigurer configurer) {
 
     }
 
