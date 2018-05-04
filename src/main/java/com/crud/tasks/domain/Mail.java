@@ -6,10 +6,9 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor
 public class Mail {
     private String mailTo;
+    private String toCc;
     private String subject;
     private String message;
-    private String toCc;
 }

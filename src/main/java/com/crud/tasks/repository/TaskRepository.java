@@ -12,4 +12,7 @@ public interface TaskRepository extends JpaRepository<Task, Long> {
     void deleteById(Long id);
 
     Optional<Task> findById(Long id);
+
+    @Override
+    long count();
 }
