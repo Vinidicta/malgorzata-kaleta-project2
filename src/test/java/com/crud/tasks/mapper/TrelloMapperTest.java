@@ -77,7 +77,7 @@ public class TrelloMapperTest {
     public void testMapToCardDto() {
         //Given
         TrelloCard trelloCard = new TrelloCard("test card", "testing description",
-                "up", "test Id");
+                "top", "test Id");
         //When
         TrelloCardDto mappedCardDto = trelloMapper.mapToCardDto(trelloCard);
 
