@@ -64,7 +64,7 @@ public class TrelloFacadeTest {
     public void testShouldCreateCreatedTrelloCardDto() {
         //Given
         TrelloBadgesDto trelloBadgesDto = new TrelloBadgesDto(1,
-                new TrelloAttachmentsByTypeDto(new TrelloDto(1,1)));
+                new TrelloAttachmentsByTypeDto(new TrelloDto(1, 1)));
 
         CreatedTrelloCardDto createdTrelloCard = new CreatedTrelloCardDto("test Id", "test Card",
                 "test.com", trelloBadgesDto);
@@ -76,21 +76,21 @@ public class TrelloFacadeTest {
 
         when(trelloMapper.mapToCard(trelloCardDto)).thenReturn(trelloCard);
         when(trelloMapper.mapToCardDto(trelloCard)).thenReturn(trelloCardDto);
-        when(trelloService.createdTrelloCard(trelloCardDto)).thenReturn(createdTrelloCard);
+        when(trelloService.createTrelloCard(trelloCardDto)).thenReturn(createdTrelloCard);
 
         //When
         CreatedTrelloCardDto createdTrelloCardDto = trelloFacade.createCard(trelloCardDto);
 
         //Then
-        assertEquals("test Id",createdTrelloCardDto.getId());
-        assertEquals("test Card",createdTrelloCardDto.getName());
-        assertEquals("test.com",createdTrelloCardDto.getShortUrl());
-        assertEquals(1,createdTrelloCardDto.getBadges().getVotes());
-        assertEquals(1,createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getBoard());
-        assertEquals(1,createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getCard());
+        assertEquals("test Id", createdTrelloCardDto.getId());
+        assertEquals("test Card", createdTrelloCardDto.getName());
+        assertEquals("test.com", createdTrelloCardDto.getShortUrl());
+        assertEquals(1, createdTrelloCardDto.getBadges().getVotes());
+        assertEquals(1, createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getBoard());
+        assertEquals(1, createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getCard());
     }
 
-/*    @Test
+    @Test
     public void testShouldFetchTrelloBoards() {
         //Given
         List<TrelloListDto> trelloLists = new ArrayList<>();
@@ -126,5 +126,5 @@ public class TrelloFacadeTest {
                 assertEquals(false, trelloListDto.isClosed());
             });
         });
-    }*/
+    }
 }

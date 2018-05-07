@@ -25,7 +25,6 @@ public class TrelloMapperTest {
 
         TrelloBoardDto trelloBoardDto = new TrelloBoardDto("testId", "test Board", listDto);
         List<TrelloBoardDto> trelloBoardsList = Arrays.asList(trelloBoardDto);
-
         //When
         List<TrelloBoard> mappedBoard = trelloMapper.mapToBoards(trelloBoardsList);
 
@@ -62,7 +61,7 @@ public class TrelloMapperTest {
     public void testMapToCard() {
         //Given
         TrelloCardDto trelloCardDto = new TrelloCardDto("test card", "test description",
-                "up", "test Id");
+                "top", "test Id");
         //When
         TrelloCard mappedCard = trelloMapper.mapToCard(trelloCardDto);
 
