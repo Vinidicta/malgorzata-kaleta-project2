@@ -32,8 +32,8 @@ public class TaskController {
         return taskMapper.mapToTaskDto(displayedTask);
     }
 
-    @DeleteMapping
-    public void deleteTask(@PathVariable Long taskId) {
+    @DeleteMapping(value = "{taskId}")
+    public void deleteTask(@PathVariable("taskId") Long taskId) {
         dbService.deleteTask(taskId);
     }
 
