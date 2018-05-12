@@ -9,10 +9,18 @@ import java.util.Optional;
 
 public interface TaskRepository extends JpaRepository<Task, Long> {
 
+    @Override
+    List<Task> findAll();
+
+    @Override
+    Task save(Task task);
+
+    @Override
+    long count();
+
     void deleteById(Long id);
 
     Optional<Task> findById(Long id);
 
-    @Override
-    long count();
+
 }
