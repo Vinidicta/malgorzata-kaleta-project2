@@ -63,11 +63,10 @@ public class TrelloFacadeTest {
     @Test
     public void testShouldCreateCreatedTrelloCardDto() {
         //Given
-        TrelloBadgesDto trelloBadgesDto = new TrelloBadgesDto(1,
-                new TrelloAttachmentsByTypeDto(new TrelloDto(1, 1)));
+
 
         CreatedTrelloCardDto createdTrelloCard = new CreatedTrelloCardDto("test Id", "test Card",
-                "test.com", trelloBadgesDto);
+                "test.com");
         TrelloCardDto trelloCardDto = new TrelloCardDto("test Card", "description",
                 "top", "test Id");
 
@@ -85,8 +84,5 @@ public class TrelloFacadeTest {
         assertEquals("test Id", createdTrelloCardDto.getId());
         assertEquals("test Card", createdTrelloCardDto.getName());
         assertEquals("test.com", createdTrelloCardDto.getShortUrl());
-        assertEquals(1, createdTrelloCardDto.getBadges().getVotes());
-        assertEquals(1, createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getBoard());
-        assertEquals(1, createdTrelloCardDto.getBadges().getAttachments().getTrelloDto().getCard());
     }
 }

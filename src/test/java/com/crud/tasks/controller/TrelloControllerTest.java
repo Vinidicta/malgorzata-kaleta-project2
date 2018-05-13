@@ -84,8 +84,8 @@ public class TrelloControllerTest {
         CreatedTrelloCardDto createdTrelloCardDto = new CreatedTrelloCardDto(
                 "323",
                 "Test",
-                "http://test.com",
-                new TrelloBadgesDto(1, new TrelloAttachmentsByTypeDto(new TrelloDto(1, 2))));
+                "http://test.com"
+               );
 
         when(trelloFacade.createCard(any(TrelloCardDto.class))).thenReturn(createdTrelloCardDto);
 

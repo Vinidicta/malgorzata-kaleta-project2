@@ -28,9 +28,6 @@ public class TrelloServiceTest {
     private AdminConfig adminConfig;
 
     @Mock
-    private TrelloBadgesDto trelloBadgesDto;
-
-    @Mock
     private SimpleEmailService emailService;
 
     @Mock
@@ -52,7 +49,7 @@ public class TrelloServiceTest {
     public void testCreateTrelloCard() {
         //Given
         CreatedTrelloCardDto createdTrelloCardDto = new CreatedTrelloCardDto("test Id", "test",
-                "test.com", trelloBadgesDto);
+                "test.com");
 
         when(trelloClient.createNewCard(trelloCardDto)).thenReturn(createdTrelloCardDto);
         when(adminConfig.getAdminMail()).thenReturn("test@gmail.com");
